@@ -10,8 +10,10 @@ public class Machine {
 	private int serviceFrequency;
 	private int flagSeverity;
 	
+	//Instantiating connection.
 	MySqlCon dbConnect = new MySqlCon();
 	
+	//Constructor
 	public Machine(String machineName, String machineDescription, Date purchaseDate, int isActive, int serviceFrequency,
 			int flagSeverity) {
 		super();
@@ -23,12 +25,14 @@ public class Machine {
 		this.flagSeverity = flagSeverity;
 	}
 	
+	//Display object as String.
 	public String displayObj(){
 		String obj = String.format("Machine name: %s, Machine description: %s, Purchase Date: %s, Is machine active: %d, "
 				+ "Service Frequency per Year: %d, Flag Severity: %d", machineName, machineDescription, purchaseDate, isActive, serviceFrequency, flagSeverity);
 		return obj;
 	}
 	
+	//Add to database.
 	public void newRegister(){
 		dbConnect.newMachineRegister(machineName, machineDescription, purchaseDate, isActive, serviceFrequency, flagSeverity);
 	}
